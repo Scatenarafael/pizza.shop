@@ -33,7 +33,5 @@ test('navigate to new restaurant page', async ({ page }) => {
 
   await page.getByRole('link', { name: 'Novo Parceiro!' }).click()
 
-  expect(page.url()).toContain('/sign-up')
-
-  await page.waitForTimeout(1000)
+  await expect(page.url()).toContain('/sign-up')
 })

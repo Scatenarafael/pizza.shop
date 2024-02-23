@@ -11,9 +11,7 @@ test('sign up successfully', async ({ page }) => {
 
   const toast = page.getByText('Restaurante cadastrado com sucesso!')
 
-  expect(toast).toBeVisible()
-
-  await page.waitForTimeout(2000)
+  await expect(toast).toBeVisible()
 })
 
 test('sign up with wrong credentials', async ({ page }) => {
@@ -27,9 +25,7 @@ test('sign up with wrong credentials', async ({ page }) => {
 
   const toast = page.getByText('Erro ao cadastrar restaurante.')
 
-  expect(toast).toBeVisible()
-
-  await page.waitForTimeout(2000)
+  await expect(toast).toBeVisible()
 })
 
 test('navigate to new login page', async ({ page }) => {
@@ -37,7 +33,5 @@ test('navigate to new login page', async ({ page }) => {
 
   await page.getByRole('link', { name: 'Login' }).click()
 
-  expect(page.url()).toContain('/sign-in')
-
-  await page.waitForTimeout(1000)
+  await expect(page.url()).toContain('/sign-in')
 })
